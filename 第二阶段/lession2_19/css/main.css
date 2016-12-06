@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#container{
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+#top{
+    margin-left: 5px;
+}
+button{
+    width: 80px;
+    border-radius: 5px;
+    margin: 5px;
+}
+#bt2{
+    margin-right: 20px;
+}
+.bottomDiv{
+    flex: 1;
+    color:#FFF;
+    margin:0 1px;
+    font-size: 10px;
+    background: red;
+}
+#bottom{
+    width: 98%;
+    height: 200px;
+    display: flex;
+    justify-content:center;
+    align-items: flex-end;/*在交叉轴上底部对齐*/
+    margin: 10 auto;
+    padding: 10px;
+}

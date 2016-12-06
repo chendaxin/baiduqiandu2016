@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>模拟队列</title>
+	<style>
+		.box ul {
+			margin: 0;
+			padding: 0;
+		}
+		.box ul li {
+			display: inline-block;
+			background-color: red;
+			font-size: 20px;
+			color: white;
+			padding: 0 10px;
+			height: 50px;
+			margin: 10px 5px;
+			text-align: center;
+			line-height: 50px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="ctrl">
+		<input type="text" id="screen">
+		<button value="left-in">左插入</button>
+		<button value="right-in">右插入</button>
+		<button value="left-out">左删除</button>
+		<button value="right-out">右删除</button>
+	</div>
+	<div class="box">
+		<ul></ul>
+	</div>
+	<script>
+		var screen = document.getElementById('screen');
+		var btn = document.getElementsByClassName('button');
+		var ctrl = document.getElementsByClassName('ctrl')[0];
+		var ul = document.getElementsByTagName('ul')[0];
+		ctrl.addEventListener('click', function(e){
+			if(e.target.tagName == "BUTTON"){
+				if(e.target.value == 'left-in' || e.target.value == 'right-in'){
+					var newNode = document.createElement('li');
+					newNode.innerHTML = screen.value.trim();
+					if(screen.value.trim().length <= 0) {
+						alert('输入为空');
+						return false;
+					}
+					if(e.target.value == 'left-in'){
+						ul.insertBefore(newNode, ul.firstChild);
+					}else{
+						ul.appendChild(newNode);
+					}
+					screen.value = null;
+				}else{
+					if(ul.hasChildNodes()){
+						if(e.target.value == 'left-out'){
+							alert(ul.firstChild.innerHTML);
+							ul.removeChild(ul.firstChild);
+						}
+						else{
+							alert(ul.lastChild.innerHTML);
+							ul.removeChild(ul.lastChild);
+						}
+					}else{
+						alert('队列为空');
+						return false;
+					}					
+				}
+			}			
+		});
+		ul.onmouseover = function () {
+			var li = ul.getElementsByTagName('li');
+			for (var i=0; i<li.length; i++) {
+					li[i].onclick = function(){
+						ul.removeChild(this);
+				}
+			}
+		}
+	</script>
+</body>
+</html>
+

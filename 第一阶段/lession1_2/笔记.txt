@@ -1,0 +1,12 @@
+1、vertical-align: middle; 把此元素放置在父元素的中部。
+2、图片垂直居中的方法：
+	1.非IE的主流浏览器识别的垂直居中的方法
+	.box{
+ 		display: table-cell;
+ 		vertical-align:middle;
+ 		}
+ 	设置水平居中: text-align:center;
+3、text-indent: 2em; 文本缩进
+4、list-style: none;去除列表样式
+5、text-decoration: none; 去除标签样式
+6、box-shadow: 2px 2px 2px #848484;水平阴影的位置，垂直阴影的位置，模糊距离，颜色
